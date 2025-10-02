@@ -1,6 +1,6 @@
 local M = {}
 
-M.colors = require('mallgoth.colors')
+M.colors = require('mallgoth.palette')
 M.utils = require('mallgoth.utils')
 M.editor_groups = require('mallgoth.groups.editor')
 
