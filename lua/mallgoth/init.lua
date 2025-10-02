@@ -1,8 +1,9 @@
 local M = {}
 
-M.colors = require('mallgoth.palette')
+M.palette = require('mallgoth.palette')
 M.utils = require('mallgoth.utils')
 M.editor_groups = require('mallgoth.groups.editor')
+M.plugins = require('mallgoth.plugins')
 
 function M.setup(user_conf)
     M.utils.process_groups(M.editor_groups.get(M.colors))
