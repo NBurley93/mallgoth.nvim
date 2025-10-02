@@ -10,9 +10,13 @@ function M.setup(user_conf)
     -- Load all integrations
     local integration_modules = vim.api.nvim_get_runtime_file('lua/mallgoth/groups/integrations/*.lua', true)
     for _, module_path in ipairs(integration_modules) do
-        local ok, loaded = pcall(require, module_path)
+        module_path = module_path:gsub('\\', '/') -- Normalize Windows paths
+
+        local rel = module_path:match('lua/(.+)%.lua$')
+
+        local ok, loaded = pcall(require, rel)
         if not ok then
-            vim.notify('Error loading Mallgoth integration: ' .. module_path .. '\n\n' .. loaded, vim.log.levels.ERROR)
+            vim.notify('Error loading Mallgoth integration: ' .. rel .. '\n\n' .. loaded, vim.log.levels.ERROR)
         else
             if type(loaded) == 'table' then
                 M.utils.process_groups(loaded)
