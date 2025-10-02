@@ -6,7 +6,7 @@ M.editor_groups = require('mallgoth.groups.editor')
 M.plugins = require('mallgoth.plugins')
 
 function M.setup(user_conf)
-    M.utils.process_groups(M.editor_groups.get(M.colors))
+    M.utils.process_groups(M.editor_groups.get(M.palette))
 
     -- Load all integrations
     local integration_modules = vim.api.nvim_get_runtime_file('mallgoth/groups/integrations/*.lua', true)
