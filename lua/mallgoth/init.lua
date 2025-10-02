@@ -8,7 +8,7 @@ function M.setup(user_conf)
     M.utils.process_groups(M.editor_groups.get(M.palette))
 
     -- Load all integrations
-    local integration_modules = vim.api.nvim_get_runtime_file('mallgoth/groups/integrations/*.lua', true)
+    local integration_modules = vim.api.nvim_get_runtime_file('lua/mallgoth/groups/integrations/*.lua', true)
     for _, module_path in ipairs(integration_modules) do
         local ok, loaded = pcall(require, module_path)
         if not ok then
