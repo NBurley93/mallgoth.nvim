@@ -1,4 +1,3 @@
--- lua/colors/mallgoth/plugins/lualine.lua
 local P = require("mallgoth.palette")
 
 -- convenience
